@@ -1,0 +1,93 @@
+<h2>Update Question</h2>
+
+<form #questionform=ngForm (ngSubmit)="questionform.valid && updateQuestion(questionform)">
+
+    <div>
+        <label>question Title</label>
+        <input type="text" name="questionTitle" required minlength="2"  ngModel #questiontitleCtrl=ngModel>
+
+    </div>
+    <div *ngIf="questiontitleCtrl.errors!==null &&  questiontitleCtrl.errors.required" class="error">
+        question title is requird
+    </div>
+    <div *ngIf="questiontitleCtrl.errors!=null && questiontitleCtrl.errors.minlength" class="error">
+        minlength is 2
+    </div>
+
+
+    <div>
+        <label>questionOptions</label>
+        <input type="number" name="questionOptions" ngModel #questionOptionsCtrl=ngModel>
+    </div>
+    <div *ngIf="questionOptionsCtrl.errors!==null &&  questionOptionsCtrl.errors.required" class="error">
+        question Options
+    </div>  
+
+
+    <div>
+        <label>questionAnswer</label>
+        <input type="number" name="questionAnswer" placeholder="choosed answers" ngModel #questionAnswerCtrl=ngModel>
+
+    </div>
+    <div *ngIf="questionAnswerCtrl.errors!==null &&  questionAnswerCtrl.errors.required" class="error">
+        question Answer
+    </div> 
+
+    <div>
+        <label>questionMarks</label>
+        <input type="number" name="questionMarks" placeholder="alloted marks" ngModel #questionMarksCtrl=ngModel>
+
+    </div>
+    <!-- <div *ngIf="questionMarksCtrl.errors!==null &&  questionMarksCtrl.errors.required" class="error">
+        question Marks
+    </div> -->
+   
+
+    <div>
+
+        <label>chosenAnswer</label>
+        <input type="number" name="chosenAnswer" placeholder="choosed answers" ngModel #chosenAnswerCtrl=ngModel>
+
+    </div>
+    <div *ngIf="chosenAnswerCtrl.errors!==null &&  chosenAnswerCtrl.errors.required" class="error">
+        Choosen Marks
+    </div> 
+    <!-- <div *ngIf="chosenAnswerCtrl.errors!=null && chosenAnswerCtrl.errors.minlength" class="error">
+        minlength is 2
+    </div>  -->
+
+
+    <div class="form-group">
+        <!-- <div> -->
+
+        <label> marks Scored</label>
+        <input type="number" name="marksScored"  placeholder="Scored marks" ngModel ngModel #marksScoredCtrl=ngModel
+            class="form-control">
+
+     </div>
+    <!-- <div *ngIf="marksScoredCtrl.errors!==null &&  marksScoredCtrl.errors.required" class="error">
+        scored Marks
+     </div>
+     <div *ngIf="marksScoredCtrl.errors!=null && marksScoredCtrl.errors.minlength" class="error">
+        minlength is 2
+    </div>  -->
+
+
+    <input type="submit" value="Submit">
+</form>
+<br>
+<div *ngIf="question!==undefined">
+   
+      <br><br>
+    <h3>Updated Questions </h3>
+    <br><br>
+    Id is {{question.id}}     <br><br>
+    Title is {{question.questionTitle}} <br><br>
+    Question options is  {{question.questionOptions}}    <br><br>
+    Question Answer is  {{question.questionAnswer}}    <br><br>
+    Question marks is  {{question.questionMarks}}    <br><br>
+    Choosen Answer is  {{question.chosenAnswer}}    <br><br>
+    MarksScored is   {{question.marksScored}}   <br><br>
+
+</div>
+

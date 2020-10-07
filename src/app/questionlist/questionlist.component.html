@@ -1,0 +1,47 @@
+<h3>Questions List</h3>
+<table class="thead-light" border="4">
+
+    <tr>
+        <th>questionId</th>
+        <th>questionTitle</th>
+        <th>questionOptions</th>
+        <th>questionAnswer</th>
+        <th>questionMarks</th>
+        <th>chosenAnswer</th>
+        <th>marksScored</th>
+    </tr>
+    <tr *ngFor="let question of questions;">
+
+        <td>
+            {{question.questionId}}
+        </td>
+        <td>
+            {{question.questionTitle}}
+        </td>
+
+        <td>
+            {{question.questionOptions}}
+
+        </td>
+        <td>
+            {{question.questionAnswer}}
+
+        </td>
+        <td>
+            {{question.questionMarks}}
+        </td>
+        <td>
+            {{question.chosenAnswer}}
+
+        </td>
+        <td>
+            {{question.marksScored}}
+        </td>
+        
+        <td>
+            <button (click)="deleteQuestion(question.questionId)">Remove question</button>
+
+        </td>
+
+    </tr>
+</table>
